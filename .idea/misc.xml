@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/cyril/Professionnel/Cours/Ynov/B2/Status/status-android/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/cyril/Professionnel/Cours/Ynov/B2/Status/status-android/app/src/main/res/layout/fragment_home_page.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/cyril/Professionnel/Cours/Ynov/B2/Status/status-android/app/src/main/res/layout/fragment_register.xml" value="0.27447916666666666" />
         <entry key="..\:/dev/test/Status/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
