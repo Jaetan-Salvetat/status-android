@@ -26,7 +26,6 @@ class NotConnectedFragment : Fragment() {
         return view
     }
 
-
     private fun login()
     {
         Navigation.push(LoginFragment())
@@ -36,6 +35,5 @@ class NotConnectedFragment : Fragment() {
     {
         Navigation.push(RegisterFragment())
     }
-
 
 }
