@@ -1,4 +1,4 @@
-package com.nanaka.status.register
+package com.nanaka.status.authentification
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
