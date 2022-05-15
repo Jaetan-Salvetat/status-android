@@ -2,6 +2,7 @@ package com.nanaka.status.services
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import kotlin.system.exitProcess
 
 class Navigation {
     companion object {
@@ -29,6 +30,9 @@ class Navigation {
         fun back() {
             if(history.isNotEmpty() && history.count() > 1) {
                 history.removeLast()
+            }
+            else{
+                exitProcess(0)
             }
             navigate()
         }

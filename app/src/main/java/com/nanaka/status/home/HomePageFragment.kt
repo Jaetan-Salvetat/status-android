@@ -20,11 +20,11 @@ class HomePageFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val notConnected = false
+        val notConnected = true
 
         if(!notConnected)
         {
-            Navigation.push(NotConnectedFragment())
+            Navigation.pushReplacement(NotConnectedFragment())
         }
 
         return inflater.inflate(R.layout.fragment_home_page, container, false)
