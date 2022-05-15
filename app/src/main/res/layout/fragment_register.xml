@@ -44,6 +44,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/input_username"
                     android:background="@drawable/input_selector"
                     android:inputType="textPersonName"/>
 
@@ -64,6 +65,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/input_mail"
                     android:background="@drawable/input_selector"
                     android:inputType="textEmailAddress"/>
 
@@ -84,6 +86,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:id="@+id/input_password"
                     android:background="@drawable/input_selector"
                     android:inputType="textPassword"/>
 
@@ -96,6 +99,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/register_button"
             android:layout_margin="8dp"
             android:text="REGISTER"
             android:textSize="16sp"/>
