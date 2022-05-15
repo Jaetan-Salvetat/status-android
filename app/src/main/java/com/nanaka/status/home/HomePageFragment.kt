@@ -20,7 +20,7 @@ class HomePageFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val notConnected = true
+        val notConnected = false
 
         if(!notConnected)
         {

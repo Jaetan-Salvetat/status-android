@@ -5,15 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.nanaka.status.R
+import com.nanaka.status.services.Navigation
 
 class LoginFragment : Fragment() {
+    private lateinit var appBar: MaterialToolbar
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        val view = inflater.inflate(R.layout.fragment_login, container, false)
+
+        appBar = view.findViewById(R.id.appbar)
+
+
+
+        appBar.setNavigationOnClickListener { Navigation.back() }
+
+        return view
     }
+
 }
