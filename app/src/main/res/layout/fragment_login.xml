@@ -33,6 +33,13 @@
             android:padding="20dp"
             android:gravity="center">
 
+            <TextView
+                android:id="@+id/error_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="16sp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -41,10 +48,11 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_auth"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/input_selector"
-                    android:inputType="textEmailAddress"/>
+                    android:inputType="textPersonName"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,6 +69,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input_password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/input_selector"
@@ -69,10 +78,10 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-
         </LinearLayout>
 
         <Button
+            android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
