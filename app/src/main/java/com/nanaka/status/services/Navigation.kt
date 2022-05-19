@@ -27,6 +27,12 @@ class Navigation {
             navigate()
         }
 
+        fun pushClear(fragment: Fragment){
+            history.clear()
+            history.add(fragment)
+            navigate()
+        }
+
         fun back() {
             if(history.isNotEmpty() && history.count() > 1) {
                 history.removeLast()

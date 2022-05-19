@@ -1,4 +1,4 @@
-package com.nanaka.status.misc.http
+package com.nanaka.status.services.http
 
 enum class ContentType {
     Json,

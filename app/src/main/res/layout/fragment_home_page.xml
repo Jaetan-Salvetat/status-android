@@ -80,6 +80,13 @@
                     android:text="This is a sample text!"/>
 
                 <Button
+                    android:id="@+id/disconnect_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Disconnect"
+                    android:backgroundTint="@android:color/holo_red_dark"/>
+
+                <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     style="@style/Widget.Material3.Button.TextButton"

@@ -45,6 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Username or E-mail"
+                app:placeholderText="example@example.com"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -52,7 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/input_selector"
-                    android:inputType="textPersonName"/>
+                    android:inputType="textPersonName" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
+                app:placeholderText="example@example.com"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText

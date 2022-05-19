@@ -1,4 +1,4 @@
-package com.nanaka.status.misc.http
+package com.nanaka.status.services.http
 
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
@@ -36,14 +36,14 @@ class HttpRequest {
                     val input = res.body?.string()
 
                     if(input != null) {
-                        try {
-                            callback(JSONObject(input), null)
-
-                        }catch (e: Exception){
-                            callback(null, input)
+                        val data = JSONObject(input)
+                        val msg = data.get("msg") as String
+                        if(msg == "success"){
+                            callback(data, msg)
+                            return@Thread
                         }
 
-
+                        callback(null, msg)
                         return@Thread
                     }
 

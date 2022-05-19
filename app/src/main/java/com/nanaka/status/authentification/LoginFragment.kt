@@ -6,28 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.nanaka.status.R
-import com.nanaka.status.home.HomePageFragment
-import com.nanaka.status.misc.http.HttpRequest
-import com.nanaka.status.misc.UiMisc
-import com.nanaka.status.misc.http.ContentType
 import com.nanaka.status.services.Navigation
-import org.json.JSONObject
 
 
 class LoginFragment : Fragment() {
     private lateinit var appBar: MaterialToolbar
-
     private lateinit var inputAuth: TextInputEditText
     private lateinit var inputPassword: TextInputEditText
     private lateinit var errorMessage: TextView
     private lateinit var loginButton: Button
 
-    private lateinit var loadingDialog: AlertDialog
+    private var authController: AuthController? = null
 
 
     override fun onCreateView(
@@ -41,40 +34,13 @@ class LoginFragment : Fragment() {
         inputPassword = view.findViewById(R.id.input_password)
         errorMessage = view.findViewById(R.id.error_message)
         loginButton = view.findViewById(R.id.login_button)
-        loadingDialog = context?.let { UiMisc.getLoadingDialog(it) }!!
-
+        authController = context?.let { AuthController(it) }
 
         appBar.setNavigationOnClickListener { Navigation.back() }
-        loginButton.setOnClickListener { login() }
+        loginButton.setOnClickListener {
+            authController?.login(inputAuth.text.toString(), inputPassword.text.toString(), errorMessage)
+        }
 
         return view
-    }
-
-    private fun login(){
-        loadingDialog.show()
-
-        val body = JSONObject()
-        body.put("auth", inputAuth.text.toString())
-        body.put("password", inputPassword.text.toString())
-
-        HttpRequest.post(
-            "/auth/login",
-            body.toString(),
-            ContentType.Json
-        ) { data, msg ->
-            loadingDialog.dismiss()
-            if(data == null){
-                errorMessage.post {
-                    errorMessage.text = msg
-                }
-                return@post
-            }
-            saveUserInfo()
-            Navigation.pushReplacement(HomePageFragment())
-        }
-    }
-
-    private fun saveUserInfo(){
-
     }
 }
