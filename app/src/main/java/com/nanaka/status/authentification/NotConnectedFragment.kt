@@ -10,8 +10,6 @@ import com.nanaka.status.R
 import com.nanaka.status.services.Navigation
 
 class NotConnectedFragment : Fragment() {
-    private var authController: AuthController? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,14 +18,9 @@ class NotConnectedFragment : Fragment() {
 
         val loginButton = view.findViewById<Button>(R.id.login_button)
         val registerButton = view.findViewById<Button>(R.id.register_button)
-        authController = context?.let{ AuthController(it) }
 
         loginButton.setOnClickListener { login() }
         registerButton.setOnClickListener { register() }
-
-
-        authController?.userHasConnected()
-
 
         return view
     }
@@ -41,5 +34,4 @@ class NotConnectedFragment : Fragment() {
     {
         Navigation.push(RegisterFragment())
     }
-
 }
