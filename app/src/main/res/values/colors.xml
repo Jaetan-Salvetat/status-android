@@ -16,6 +16,8 @@
 
     <color name="lightBlueTransparent">#6D3185FC</color>
 
-
+    <color name="online">#3FE83F</color>
+    <color name="away">#E8AA3F</color>
+    <color name="offline">#535353</color>
 
 </resources>
