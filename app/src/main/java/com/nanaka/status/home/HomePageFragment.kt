@@ -6,8 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
+import com.google.android.material.appbar.AppBarLayout
 import com.nanaka.status.R
 import com.nanaka.status.authentification.AuthController
+import com.nanaka.status.profile.Profile
+import com.nanaka.status.services.Navigation
 
 
 class HomePageFragment : Fragment() {
@@ -19,10 +23,15 @@ class HomePageFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_home_page, container, false)
 
-        view.findViewById<Button>(R.id.disconnect_button).setOnClickListener {
-            context?.let { AuthController(it).disconnect() }
-        }
+        view.findViewById<ImageView>(R.id.edit_profile).setOnClickListener() { goToProfile() }
 
         return view
     }
+
+    fun goToProfile()
+    {
+        Navigation.push(Profile())
+    }
+
+
 }

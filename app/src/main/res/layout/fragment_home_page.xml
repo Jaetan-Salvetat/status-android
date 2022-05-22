@@ -11,6 +11,7 @@
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -41,6 +42,7 @@
                         android:layout_weight="1"/>
 
                     <ImageView
+                        android:id="@+id/edit_profile"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_margin="5dp"
@@ -50,148 +52,6 @@
             </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.AppBarLayout>
-
-
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="This is a sample text!"/>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:text="This is a sample text!"/>
-
-                <Button
-                    android:id="@+id/disconnect_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Disconnect"
-                    android:backgroundTint="@android:color/holo_red_dark"/>
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.Material3.Button.TextButton"
-                    android:text="This is a sample text!"/>
-
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Theme dark"
-                    android:checked="true"/>
-
-                <com.google.android.material.switchmaterial.SwitchMaterial
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Theme dark"
-                    android:checked="false"/>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Hello World"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/input_selector"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:focusable="true" />
-
-            </LinearLayout>
-
-        </ScrollView>
-
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_gravity="bottom|end"
-            android:text="Short Sample Text"
-            app:icon="@drawable/settings_icon"/>
-
-        <!--
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginVertical="5dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginHorizontal="5dp">
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@color/black"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:layout_gravity="center"
-                    android:layout_weight="1">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Is now:"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="10dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Stream de qualité!!"
-                        android:textSize="20sp"/>
-                </LinearLayout>
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@color/black"
-                    android:layout_margin="10dp"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        -->
 
     </LinearLayout>
 
