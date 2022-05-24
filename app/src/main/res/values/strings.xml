@@ -1,21 +1,20 @@
 <resources>
-    <string name="app_name" translatable="false">Status</string>
+    <string name="app_name">Status</string>
 
-    <string name="login" translatable="false">Login</string>
-    <string name="register" translatable="false">Register</string>
-e    <string name="online" translatable="false">Online</string>
-    <string name="offline" translatable="false">Offline</string>
-    <string name="away" translatable="false">Away</string>
-    <string name="status_message" translatable="false">Status message</string>
-    <string name="save_status" translatable="false">Save Status</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="online">Online</string>
+    <string name="offline">Offline</string>
+    <string name="away">Away</string>
+    <string name="status_message">Status message</string>
+    <string name="save">Save</string>
     <string name="disconnect">Disconnect</string>
-    <string name="username" translatable="false">Username</string>
-    <string name="password" translatable="false">Password</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
     <string name="email" translatable="false">E-mail</string>
-    <string name="profile_picture" translatable="false">Profile picture</string>
-    <string name="username_or_email" translatable="false">Username or E-mail</string>
-    <string name="name_25_length" translatable="false">A name with 25 characters</string>
-    <string name="edit_profile" translatable="false">Edit profile button</string>
-    <string name="not_connected" translatable="false">You are not connected</string>
-    <string name="loading" translatable="false">Loading…</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="username_or_email">Username or E-mail</string>
+    <string name="edit_profile">Edit profile button</string>
+    <string name="not_connected">You are not connected</string>
+    <string name="loading">Loading…</string>
 </resources>
