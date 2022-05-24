@@ -9,14 +9,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
+                android:contentDescription="@string/EN_profile_picture"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginHorizontal="10dp"
@@ -26,7 +29,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Username"
+                android:text="@string/EN_username"
                 android:textSize="20sp"
                 android:gravity="center_horizontal"/>
 
@@ -46,7 +49,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -91,31 +95,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/online_toggle"
-                    android:text="Online"
+                    android:text="@string/EN_online"
+                    style="?attr/materialButtonOutlinedStyle"
                     android:layout_weight="1"/>
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/away_toggle"
-                    android:text="Away"
-                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                    android:text="@string/EN_away"
+                    style="?attr/materialButtonOutlinedStyle"
                     android:layout_weight="1"/>
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/offline_toggle"
-                    android:text="Offline"
-                    style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                    android:text="@string/EN_offline"
+                    style="?attr/materialButtonOutlinedStyle"
                     android:layout_weight="1"/>
 
 
             </com.google.android.material.button.MaterialButtonToggleGroup>
 
 
+
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Status message"
+                android:hint="@string/EN_status_message"
                 android:layout_marginVertical="10dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
@@ -132,7 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:text="Save status"
+                android:text="@string/EN_save_status"
                 android:textSize="20sp"
                 android:layout_marginHorizontal="10dp" />
 
@@ -148,7 +155,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:id="@+id/disconnect_button"
-            android:text="Disconnect"
+            android:text="@string/EN_disconnect"
             android:textSize="18sp"
             android:backgroundTint="@android:color/holo_red_dark"/>
 

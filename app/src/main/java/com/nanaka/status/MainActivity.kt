@@ -4,8 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
-import com.nanaka.status.authentification.AuthController
-import com.nanaka.status.authentification.NotConnectedFragment
+import com.nanaka.status.authentication.AuthController
+import com.nanaka.status.authentication.NotConnectedFragment
 import com.nanaka.status.home.HomePageFragment
 import com.nanaka.status.services.LocalStorage
 import com.nanaka.status.services.http.HttpRequest

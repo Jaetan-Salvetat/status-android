@@ -1,5 +1,29 @@
 <resources>
     <string name="app_name">Status</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="FR_login">Connexion</string>
+    <string name="FR_register">S\'inscrire</string>
+    <string name="FR_online">En ligne</string>
+    <string name="FR_offline">Hors ligne</string>
+    <string name="FR_away">Absent</string>
+    <string name="FR_username">Nom d\'utilisateur</string>
+
+
+    <string name="EN_login">Login</string>
+    <string name="EN_register">Register</string>
+    <string name="EN_online">Online</string>
+    <string name="EN_offline">Offline</string>
+    <string name="EN_away">Away</string>
+    <string name="EN_status_message">Status message</string>
+    <string name="EN_save_status">Save Status</string>
+    <string name="EN_disconnect">Disconnect</string>
+    <string name="EN_username">Username</string>
+    <string name="EN_password">Password</string>
+    <string name="EN_email">E-mail</string>
+    <string name="EN_profile_picture">Profile picture</string>
+    <string name="EN_username_or_email">Username or E-mail</string>
+    <string name="EN_sample_text">A name with 25 characters</string>
+    <string name="EN_edit_profile">Edit profile button</string>
+    <string name="EN_not_connected">You are not connected</string>
+    <string name="EN_loading">Loading…</string>
 </resources>

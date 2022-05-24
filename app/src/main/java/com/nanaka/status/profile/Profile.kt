@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.nanaka.status.R
-import com.nanaka.status.authentification.AuthController
+import com.nanaka.status.authentication.AuthController
 
 class Profile : Fragment() {
     override fun onCreateView(
