@@ -16,4 +16,5 @@
     <string name="edit_profile">Éditer le profil</string>
     <string name="not_connected">Déconnecté</string>
     <string name="loading">Chargement…</string>
+    <string name="no_status_text">Message de statut manquant</string>
 </resources>
