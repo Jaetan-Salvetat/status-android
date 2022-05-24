@@ -46,7 +46,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/EN_username"
+                android:hint="@string/username"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -67,7 +67,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/EN_email"
+                android:hint="@string/email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -88,7 +88,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/EN_password"
+                android:hint="@string/password"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/register_button"
             android:layout_margin="8dp"
-            android:text="@string/EN_register"
+            android:text="@string/register"
             android:textSize="16sp"/>
 
     </LinearLayout>

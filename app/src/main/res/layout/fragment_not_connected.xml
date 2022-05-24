@@ -22,7 +22,7 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/EN_not_connected"
+                android:text="@string/not_connected"
                 android:textSize="25sp"/>
 
             <View
@@ -34,13 +34,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:text="@string/EN_login"/>
+                android:text="@string/login"/>
             <Button
                 android:id="@+id/register_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:text="@string/EN_register"/>
+                android:text="@string/register"/>
 
         </LinearLayout>
 
