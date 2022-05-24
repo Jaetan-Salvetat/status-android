@@ -1,5 +1,6 @@
 package com.nanaka.status.services.http
 
+import android.util.Log
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -19,13 +20,44 @@ class HttpRequest {
         }
 
 
+        fun get(path: String, callback: (JSONObject?, String?) -> Unit){
+            val url = URL(baseUrl + path)
+
+            val request = Request.Builder()
+                .url(url)
+                .get()
+                .build()
+
+            Thread {
+                try {
+                    val req = client.newCall(request).execute()
+                    val res = req.body?.string()
+                    if(res != null){
+                        val data = JSONObject(res)
+                        val msg = data.get("msg") as String
+
+                        if(msg == "success"){
+                            callback(data, msg)
+                            return@Thread
+                        }
+
+                        callback(null, msg)
+                        return@Thread
+                    }
+
+                    callback(null, null)
+                }catch (e: Exception){
+                    callback(null, null)
+                }
+            }.start()
+        }
 
         fun post(path: String, body: String, contentType: ContentType, callback: (JSONObject?, String?) -> Unit){
             val url = URL(baseUrl + path)
 
-            val content: RequestBody = getContentType(body, contentType)
+            val content = getContentType(body, contentType)
 
-            val request: Request = Request.Builder()
+            val request = Request.Builder()
                 .url(url)
                 .post(content)
                 .build()
@@ -34,7 +66,6 @@ class HttpRequest {
                 try {
                     val res = client.newCall(request).execute()
                     val input = res.body?.string()
-
                     if(input != null) {
                         val data = JSONObject(input)
                         val msg = data.get("msg") as String
@@ -53,14 +84,6 @@ class HttpRequest {
                     callback(null, null)
                 }
             }.start()
-        }
-
-        fun put(path: String){
-            val url = URL(baseUrl + path)
-        }
-
-        fun delete(path: String){
-            val url = URL(baseUrl + path)
         }
 
         private fun getContentType(body: String, contentType: ContentType) : RequestBody {

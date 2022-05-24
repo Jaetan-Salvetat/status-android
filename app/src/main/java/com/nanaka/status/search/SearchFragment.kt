@@ -1,24 +1,27 @@
 package com.nanaka.status.search
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.textfield.TextInputLayout
 import com.nanaka.status.R
-import com.nanaka.status.home.MainAdapter
-import com.nanaka.status.services.LocalStorage
+import com.nanaka.status.controllers.UserController
+import com.nanaka.status.services.Navigation
 
 
 class SearchFragment : Fragment() {
+    private lateinit var toolBar: MaterialToolbar
     private lateinit var usersList: RecyclerView
     private lateinit var adapter: MainAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private lateinit var searchInput: TextInputLayout
+    private lateinit var noUsersText: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,11 +31,42 @@ class SearchFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
         usersList = view.findViewById(R.id.main_adapter)
+        toolBar = view.findViewById(R.id.tool_bar)
+        searchInput = view.findViewById(R.id.search_input_layout)
+        noUsersText = view.findViewById(R.id.no_users_text)
         adapter = MainAdapter()
-
         usersList.adapter = adapter
         usersList.layoutManager = LinearLayoutManager(context)
 
+
+        searchInput.requestFocus()
+        noUsersTextManager(true)
+
+        toolBar.setNavigationOnClickListener { Navigation.back() }
+        searchInput.setEndIconOnClickListener { searchUsers() }
+
         return view
+    }
+
+    private fun searchUsers(){
+        context?.let { it1 ->
+            UserController(it1).searchUsers(searchInput.editText?.text.toString()) {
+                adapter.update(it)
+                searchInput.editText?.clearComposingText()
+                searchInput.editText?.clearFocus()
+                noUsersTextManager(it.isEmpty())
+                Log.d("XXXXXXXXXXXXXXXXXX", "it.isEmpty(): ${it.isEmpty()}")
+            }
+        }
+    }
+
+    private fun noUsersTextManager(userListIsEmpty: Boolean){
+        if(userListIsEmpty){
+            noUsersText.visibility = View.VISIBLE
+            usersList.visibility = View.INVISIBLE
+        }else{
+            noUsersText.visibility = View.INVISIBLE
+            usersList.visibility = View.VISIBLE
+        }
     }
 }

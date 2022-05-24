@@ -17,4 +17,5 @@
     <string name="not_connected">Déconnecté</string>
     <string name="loading">Chargement…</string>
     <string name="no_status_text">Message de statut manquant</string>
+    <string name="search_input_placeholder">Rechercher un nom d\'utilisateur</string>
 </resources>

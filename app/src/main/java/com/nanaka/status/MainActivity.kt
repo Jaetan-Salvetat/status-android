@@ -2,7 +2,6 @@ package com.nanaka.status
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatDelegate
 import com.nanaka.status.authentication.AuthController
 import com.nanaka.status.authentication.NotConnectedFragment
@@ -23,10 +22,8 @@ class MainActivity : AppCompatActivity() {
 
 
         val firstFragment = if(AuthController(this).userHasConnected()){
-            Log.d("XXXXXXXXXXXXXXXXXXXXX", "home screen")
             HomePageFragment()
         }else{
-            Log.d("XXXXXXXXXXXXXXXXXXXXX", "not connected screen")
             NotConnectedFragment()
         }
 
