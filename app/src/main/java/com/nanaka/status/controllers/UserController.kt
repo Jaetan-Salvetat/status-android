@@ -67,5 +67,24 @@ class UserController(private val context: Context) {
                 }
             }
         }
-     }
+    }
+
+    fun follow(followedUsername: String, callback: (Boolean, String) -> Unit){
+        loadingDialog.show()
+        val body = JSONObject()
+        body.put("username", LocalStorage.username)
+        body.put("token", LocalStorage.token)
+        body.put("followedUsername", followedUsername)
+
+        HttpRequest.post("/users/follow", body.toString(), ContentType.Json) { _, msg: String? ->
+            (context as Activity).runOnUiThread {
+                loadingDialog.dismiss()
+                if(msg == "success") {
+                    callback(true, msg)
+                    return@runOnUiThread
+                }
+                callback(false, msg ?: "Error")
+            }
+        }
+    }
 }
