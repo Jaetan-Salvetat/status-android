@@ -36,21 +36,18 @@ class UserController(private val context: Context) {
     }
 
     fun findMyFollows(callback: (MutableList<User>) -> Unit){
-        loadingDialog.show()
-
         val body = JSONObject()
         body.put("username", LocalStorage.username)
         body.put("token", LocalStorage.token)
 
         HttpRequest.post("/users/followers", body.toString(), ContentType.Json) { data: JSONObject?, msg: String? ->
             (context as Activity).runOnUiThread {
-                loadingDialog.dismiss()
                 val jsonUsers = data?.getJSONArray("users")
                 if(jsonUsers != null && msg == "success"){
                     val users = mutableListOf<User>()
                     try {
                         for(i in 0 until jsonUsers.length()){
-                            val user = jsonUsers.getJSONObject(i).getJSONObject("User")
+                            val user = jsonUsers.getJSONObject(i)
                             val status = user.getJSONObject("Status")
                             val userReader = StringReader(user.toString())
                             val statusReader = StringReader(status.toString())
@@ -59,7 +56,7 @@ class UserController(private val context: Context) {
                             users[i].status = Gson().fromJson(statusReader, Status::class.java)
                         }
 
-                        Log.d("XXXXXXXXXXXXXXXXXXXXX", "users: $data")
+                        Log.d("XXXXXXXXXXXXXXXXXXXXX", "users: $users")
                         callback(users)
                     }catch (e: Exception){
                         Log.d("XXXXXXXXXXXXXXXXXXX", "error: $e")
