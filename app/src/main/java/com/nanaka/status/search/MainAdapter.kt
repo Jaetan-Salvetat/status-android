@@ -26,15 +26,13 @@ class MainAdapter : RecyclerView.Adapter<ViewHolder>() {
         val user = users[id]
         view.usernameText.text = user.username
 
-        if(user.profilePicture.isNullOrBlank()){
+        if(!user.profilePicture.isNullOrBlank()){
             Glide.with(view.context).load(user.profilePicture).into(view.profilePicture)
         }
 
 
 
-        view.container.setOnClickListener {
-
-        }
+        view.container.setOnClickListener { /* go to profile */ }
     }
 
     override fun getItemCount(): Int {

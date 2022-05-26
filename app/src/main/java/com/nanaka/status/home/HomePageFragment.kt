@@ -7,11 +7,13 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.nanaka.status.R
+import com.nanaka.status.controllers.UserController
 import com.nanaka.status.profile.Profile
 import com.nanaka.status.search.SearchFragment
 import com.nanaka.status.services.LocalStorage
@@ -21,6 +23,7 @@ import com.nanaka.status.services.Navigation
 class HomePageFragment : Fragment() {
     private lateinit var toolBar: MaterialToolbar
     private lateinit var usernameText: TextView
+    private lateinit var noUsersText: TextView
     private lateinit var searchBtn: FloatingActionButton
     private lateinit var usersList: RecyclerView
     private lateinit var adapter: MainAdapter
@@ -35,11 +38,15 @@ class HomePageFragment : Fragment() {
         usernameText = view.findViewById(R.id.username)
         usersList = view.findViewById(R.id.main_adapter)
         searchBtn = view.findViewById(R.id.go_to_search)
+        noUsersText = view.findViewById(R.id.no_users_text)
         adapter = MainAdapter()
-
         usernameText.text = LocalStorage.username
         usersList.adapter = adapter
+
+
         usersList.layoutManager = LinearLayoutManager(context)
+        ViewCompat.setNestedScrollingEnabled(usersList, true)
+        findMyFollows()
 
 
         toolBar.setNavigationOnClickListener { Navigation.push(Profile()) }
@@ -49,10 +56,27 @@ class HomePageFragment : Fragment() {
         return view
     }
 
+    private fun findMyFollows(){
+        context?.let { UserController(it).findMyFollows { users ->
+            adapter.update(users)
+            noUsersTextManager(users.isEmpty())
+        } }
+    }
+
+    private fun noUsersTextManager(userListIsEmpty: Boolean){
+        if(userListIsEmpty){
+            noUsersText.visibility = View.VISIBLE
+            usersList.visibility = View.INVISIBLE
+        }else{
+            noUsersText.visibility = View.INVISIBLE
+            usersList.visibility = View.VISIBLE
+        }
+    }
+
     private fun onMenuClick(menu: MenuItem) : Boolean {
         return when(menu.itemId){
             R.id.go_to_settings -> true
-            else -> true
+            else -> false
         }
     }
 }
