@@ -1,6 +1,5 @@
 package com.nanaka.status.services.http
 
-import android.util.Log
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
