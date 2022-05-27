@@ -36,15 +36,12 @@ class UserController(private val context: Context) {
     }
 
     fun findMyFollows(callback: (MutableList<User>) -> Unit){
-        loadingDialog.show()
-
-        val body = JSONObject()
+         val body = JSONObject()
         body.put("username", LocalStorage.username)
         body.put("token", LocalStorage.token)
 
         HttpRequest.post("/users/followers", body.toString(), ContentType.Json) { data: JSONObject?, msg: String? ->
             (context as Activity).runOnUiThread {
-                loadingDialog.dismiss()
 
                 val jsonUsers = data?.getJSONArray("users")
 
