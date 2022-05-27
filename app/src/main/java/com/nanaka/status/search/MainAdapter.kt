@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.nanaka.status.R
 import com.nanaka.status.controllers.UserController
@@ -58,7 +59,11 @@ class MainAdapter : RecyclerView.Adapter<ViewHolder>() {
                 return@follow
             }
 
-            Snackbar.make(view.container, msg, Snackbar.LENGTH_LONG).show()
+            MaterialAlertDialogBuilder(view.context)
+                .setTitle("Error")
+                .setMessage(msg)
+                .setNegativeButton("Ok") {dialog, _ -> dialog.dismiss()}
+                .show()
         }
     }
 }

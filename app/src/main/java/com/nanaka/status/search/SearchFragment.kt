@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,6 +42,7 @@ class SearchFragment : Fragment() {
 
         searchInput.requestFocus()
         noUsersTextManager(true)
+        ViewCompat.setNestedScrollingEnabled(usersList, true)
 
         toolBar.setNavigationOnClickListener { Navigation.back() }
         searchInput.setEndIconOnClickListener { searchUsers() }
@@ -49,11 +51,10 @@ class SearchFragment : Fragment() {
     }
 
     private fun searchUsers(){
+        searchInput.editText?.clearFocus()
         context?.let { it1 ->
             UserController(it1).searchUsers(searchInput.editText?.text.toString()) {
                 adapter.update(it)
-                searchInput.editText?.clearComposingText()
-                searchInput.editText?.clearFocus()
                 noUsersTextManager(it.isEmpty())
                 Log.d("XXXXXXXXXXXXXXXXXX", "it.isEmpty(): ${it.isEmpty()}")
             }

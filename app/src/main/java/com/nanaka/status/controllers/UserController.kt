@@ -36,15 +36,21 @@ class UserController(private val context: Context) {
     }
 
     fun findMyFollows(callback: (MutableList<User>) -> Unit){
+        loadingDialog.show()
+
         val body = JSONObject()
         body.put("username", LocalStorage.username)
         body.put("token", LocalStorage.token)
 
         HttpRequest.post("/users/followers", body.toString(), ContentType.Json) { data: JSONObject?, msg: String? ->
             (context as Activity).runOnUiThread {
+                loadingDialog.dismiss()
+
                 val jsonUsers = data?.getJSONArray("users")
+
                 if(jsonUsers != null && msg == "success"){
                     val users = mutableListOf<User>()
+
                     try {
                         for(i in 0 until jsonUsers.length()){
                             val user = jsonUsers.getJSONObject(i)
@@ -67,15 +73,14 @@ class UserController(private val context: Context) {
     }
 
     fun follow(followedUsername: String, callback: (Boolean, String) -> Unit){
-        loadingDialog.show()
         val body = JSONObject()
         body.put("username", LocalStorage.username)
         body.put("token", LocalStorage.token)
         body.put("followedUsername", followedUsername)
 
-        HttpRequest.post("/users/follow", body.toString(), ContentType.Json) { _, msg: String? ->
+        HttpRequest.post("/follow", body.toString(), ContentType.Json) { _, msg: String? ->
             (context as Activity).runOnUiThread {
-                loadingDialog.dismiss()
+                Log.d("XXXXXXXXXXXXXXXXX", "data: $msg")
                 if(msg == "success") {
                     callback(true, msg)
                     return@runOnUiThread
