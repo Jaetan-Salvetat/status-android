@@ -1,5 +1,6 @@
 package com.nanaka.status.services.http
 
+import android.util.Log
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -68,6 +69,7 @@ class HttpRequest {
                     if(input != null) {
                         val data = JSONObject(input)
                         val msg = data.get("msg") as String
+                        Log.d("XXXXXXXXXXXXXXXXX", "data: $msg")
                         if(msg == "success"){
                             callback(data, msg)
                             return@Thread

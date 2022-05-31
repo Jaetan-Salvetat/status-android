@@ -1,7 +1,7 @@
 package com.nanaka.status.profile
 
-import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,13 +14,11 @@ import com.bumptech.glide.Glide
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.button.MaterialButtonToggleGroup
 import com.nanaka.status.R
-import com.nanaka.status.authentication.AuthController
+import com.nanaka.status.controllers.AuthController
 import com.nanaka.status.controllers.UserController
 import com.nanaka.status.controllers.WsController
 import com.nanaka.status.services.LocalStorage
 import com.nanaka.status.services.Navigation
-import com.nanaka.status.services.http.ContentType
-import com.nanaka.status.services.http.HttpRequest
 import org.json.JSONObject
 
 class Profile : Fragment() {
@@ -62,6 +60,7 @@ class Profile : Fragment() {
         wsController = context?.let { WsController(it) }!!
 
 
+
         getUserInfo()
 
 
@@ -87,7 +86,10 @@ class Profile : Fragment() {
         }
 
         errorMessageView.visibility = View.INVISIBLE
-        statusKeys[statusType]?.let { wsController.editStatus(it, statusMessage) }
+        statusKeys[statusType]?.let {
+            wsController.editStatus(it, statusMessage)
+            Log.d("XXXXXXXXXXXXXXXXXXXXXXXXXXX", "status: $it")
+        }
     }
 
     private fun getUserInfo(){
@@ -101,6 +103,7 @@ class Profile : Fragment() {
                 val follower = user.followerLen ?: 0
 
                 user.status?.let { initStatus(it.type, user.status!!.name) }
+
                 followerLen.text = follower.toString()
                 followedLen.text = followed.toString()
 
@@ -115,9 +118,10 @@ class Profile : Fragment() {
         statusKeys.forEach {
             if(type == it.value){
                 statusTypeManager.check(it.key)
-                return
+                return@forEach
             }
         }
+
         statusMessageInput.setText(name)
     }
 }

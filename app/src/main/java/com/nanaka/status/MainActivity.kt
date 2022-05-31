@@ -3,7 +3,7 @@ package com.nanaka.status
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
-import com.nanaka.status.authentication.AuthController
+import com.nanaka.status.controllers.AuthController
 import com.nanaka.status.authentication.NotConnectedFragment
 import com.nanaka.status.home.HomePageFragment
 import com.nanaka.status.services.LocalStorage

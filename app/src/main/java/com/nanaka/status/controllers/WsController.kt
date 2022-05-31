@@ -2,6 +2,7 @@ package com.nanaka.status.controllers
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import com.nanaka.status.services.LocalStorage
 import io.socket.client.IO
 import io.socket.client.Socket
@@ -13,10 +14,12 @@ class WsController(val context: Context) {
     private var socket: Socket = IO.socket(URI(
         "https://status.jaetan.fr" +
                 "?username=${LocalStorage.username}" +
-                "&token=${LocalStorage.username}"
+                "&token=${LocalStorage.token}"
     ))
+    
     init {
         socket.connect()
+        Log.d("XXXXXXXXXXX", "socket.io connected: ${socket.isActive}")
     }
 
     fun editStatusListener(callback: Emitter.Listener){

@@ -30,8 +30,7 @@
         android:textSize="18sp"
         android:layout_marginStart="20dp"/>
 
-    <LinearLayout
-        android:id="@+id/btn_container"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -43,6 +42,18 @@
             app:icon="@drawable/person_add_icon"
             style="@style/Widget.Material3.Button.OutlinedButton.Icon"/>
 
-    </LinearLayout>
+        <Button
+            android:id="@+id/unfollow_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unfollow"
+            android:visibility="invisible"
+            app:icon="@drawable/person_remove"
+            app:strokeColor="@android:color/holo_red_dark"
+            android:textColor="@android:color/holo_red_dark"
+            app:iconTint="@android:color/holo_red_dark"
+            style="@style/Widget.Material3.Button.OutlinedButton.Icon"/>
+
+    </FrameLayout>
 
 </LinearLayout>
