@@ -3,16 +3,18 @@ package com.nanaka.status.home
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.nanaka.status.R
+import com.nanaka.status.controllers.UserController
 import com.nanaka.status.models.User
 
 class MainAdapter : RecyclerView.Adapter<ViewHolder>() {
@@ -33,6 +35,8 @@ class MainAdapter : RecyclerView.Adapter<ViewHolder>() {
             Glide.with(view.context).load(user.profilePicture).into(view.profilePicture)
         }
 
+
+
         when(user.status?.type){
             "online" -> {
                 view.statusColor.backgroundTintList = ColorStateList.valueOf(view.context.resources.getColor(R.color.online, null))
@@ -50,6 +54,7 @@ class MainAdapter : RecyclerView.Adapter<ViewHolder>() {
 
 
         view.container.setOnClickListener { /* go to profile */ }
+        view.unfollowBtn.setOnClickListener { unfollow(view, id) }
     }
 
     override fun getItemCount(): Int {
@@ -62,6 +67,24 @@ class MainAdapter : RecyclerView.Adapter<ViewHolder>() {
         users = u
         notifyDataSetChanged()
     }
+
+    private fun unfollow(view: ViewHolder, id: Int){
+        users[id].id?.let {
+            UserController(view.context).unfollow(it) { hasUnfollowed: Boolean, msg: String ->
+                if(hasUnfollowed){
+                    users.removeAt(id)
+                    notifyItemRemoved(id)
+                    return@unfollow
+                }
+
+                MaterialAlertDialogBuilder(view.context)
+                    .setTitle("Error")
+                    .setMessage(msg)
+                    .setNegativeButton("Ok") {dialog, _ -> dialog.dismiss()}
+                    .show()
+            }
+        }
+    }
 }
 
 class ViewHolder(view: View, val context: Context) : RecyclerView.ViewHolder(view) {
@@ -70,4 +93,5 @@ class ViewHolder(view: View, val context: Context) : RecyclerView.ViewHolder(vie
     val statusText: TextView = view.findViewById(R.id.status)
     val statusColor: View = view.findViewById(R.id.status_color)
     val profilePicture: ImageView = view.findViewById(R.id.profile_picture)
+    val unfollowBtn: Button = view.findViewById(R.id.unfollow_btn)
 }

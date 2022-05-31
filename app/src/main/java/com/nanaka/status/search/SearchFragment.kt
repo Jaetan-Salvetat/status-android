@@ -54,7 +54,7 @@ class SearchFragment : Fragment() {
         searchInput.editText?.clearFocus()
         context?.let { it1 ->
             UserController(it1).searchUsers(searchInput.editText?.text.toString()) {
-                adapter.update(it)
+                adapter.updateAll(it)
                 noUsersTextManager(it.isEmpty())
                 Log.d("XXXXXXXXXXXXXXXXXX", "it.isEmpty(): ${it.isEmpty()}")
             }

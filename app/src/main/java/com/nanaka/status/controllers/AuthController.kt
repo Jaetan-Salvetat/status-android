@@ -1,9 +1,10 @@
-package com.nanaka.status.authentication
+package com.nanaka.status.controllers
 
 import android.app.Activity
 import android.content.Context
 import android.util.Log
 import android.widget.TextView
+import com.nanaka.status.authentication.NotConnectedFragment
 import com.nanaka.status.home.HomePageFragment
 import com.nanaka.status.misc.UiMisc
 import com.nanaka.status.services.LocalStorage

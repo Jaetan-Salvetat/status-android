@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputEditText
 import com.nanaka.status.R
+import com.nanaka.status.controllers.AuthController
 import com.nanaka.status.services.Navigation
 
 
