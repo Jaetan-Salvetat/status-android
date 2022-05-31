@@ -12,35 +12,89 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/back_arrow"
+                app:title="@string/username"
+                app:titleCentered="true"/>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
+            android:paddingHorizontal="20dp">
 
             <ImageView
-                android:contentDescription="@string/profile_picture"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginHorizontal="10dp"
-                android:layout_gravity="start"
-                android:src="@color/black"/>
+                android:id="@+id/profile_picture"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/profile_icon"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/username"
-                android:textSize="20sp"
-                android:gravity="center_horizontal"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/follower_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="followers"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/followed_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="45"
+                    android:textStyle="bold"
+                    android:textSize="18sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="followed"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
+
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
-            android:layout_marginVertical="20dp"
-            android:layout_height="1dp"/>
-
-
+            android:layout_height="1dp"
+            android:layout_marginVertical="20dp"/>
 
 
         <LinearLayout
@@ -103,26 +157,28 @@
                 android:id="@+id/status_button_manager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:singleSelection="true">
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                >
 
                 <Button
+                    android:id="@+id/online_toggle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/online_toggle"
                     android:text="@string/online"
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_weight="1"/>
                 <Button
+                    android:id="@+id/away_toggle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/away_toggle"
                     android:text="@string/away"
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_weight="1"/>
                 <Button
+                    android:id="@+id/offline_toggle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/offline_toggle"
                     android:text="@string/offline"
                     style="?attr/materialButtonOutlinedStyle"
                     android:layout_weight="1"/>

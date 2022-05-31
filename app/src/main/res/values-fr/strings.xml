@@ -14,7 +14,7 @@
     <string name="profile_picture">Image de profil</string>
     <string name="username_or_email">Utilisateur ou E-mail</string>
     <string name="edit_profile">Éditer le profil</string>
-    <string name="not_connected">Déconnecté</string>
+    <string name="not_connected">Vous n\'êtes pas connecté ?</string>
     <string name="loading">Chargement…</string>
     <string name="no_status_text">Message de statut manquant</string>
     <string name="search_input_placeholder">Rechercher un nom d\'utilisateur</string>

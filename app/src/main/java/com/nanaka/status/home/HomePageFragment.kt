@@ -1,6 +1,8 @@
 package com.nanaka.status.home
 
+import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -14,10 +16,12 @@ import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.nanaka.status.R
 import com.nanaka.status.controllers.UserController
+import com.nanaka.status.controllers.WsController
 import com.nanaka.status.profile.Profile
 import com.nanaka.status.search.SearchFragment
 import com.nanaka.status.services.LocalStorage
 import com.nanaka.status.services.Navigation
+import io.socket.emitter.Emitter
 
 
 class HomePageFragment : Fragment() {
@@ -27,6 +31,8 @@ class HomePageFragment : Fragment() {
     private lateinit var searchBtn: FloatingActionButton
     private lateinit var usersList: RecyclerView
     private lateinit var adapter: MainAdapter
+    private lateinit var wsController: WsController
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,11 +46,13 @@ class HomePageFragment : Fragment() {
         searchBtn = view.findViewById(R.id.go_to_search)
         noUsersText = view.findViewById(R.id.no_users_text)
         adapter = MainAdapter()
+        wsController = context?.let { WsController(it) }!!
         usernameText.text = LocalStorage.username
         usersList.adapter = adapter
-
-
         usersList.layoutManager = LinearLayoutManager(context)
+
+
+        wsController.editStatusListener(listener())
         ViewCompat.setNestedScrollingEnabled(usersList, true)
         findMyFollows()
 
@@ -77,6 +85,14 @@ class HomePageFragment : Fragment() {
         return when(menu.itemId){
             R.id.go_to_settings -> true
             else -> false
+        }
+    }
+
+    private fun listener(): Emitter.Listener {
+        return  Emitter.Listener {
+            (context as Activity).runOnUiThread {
+                Log.d("XXXXXXXXXXXXXXXXXXXX", it.toString())
+            }
         }
     }
 }

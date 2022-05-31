@@ -16,6 +16,28 @@ import java.io.StringReader
 class UserController(private val context: Context) {
     private var loadingDialog = UiMisc.getLoadingDialog(context)
 
+
+    fun getUserInfo(body: JSONObject, callback: (User) -> Unit){
+        HttpRequest.post("/users/me", body.toString(), ContentType.Json) {data: JSONObject?, msg: String? ->
+            (context as Activity).runOnUiThread {
+                if(msg != null && data != null && msg == "success"){
+                    val jsonUser = data.getJSONObject("user")
+                    val jsonStatus = jsonUser.getJSONObject("Status")
+                    val userReader = StringReader(jsonUser.toString())
+                    val statusReader = StringReader(jsonStatus.toString())
+
+                    val user = Gson().fromJson(userReader, User::class.java)
+                    user.status = Gson().fromJson(statusReader, Status::class.java)
+                    user.followedLen = data.getInt("followedLen")
+                    user.followerLen = data.getInt("followerLen")
+
+                    callback(user)
+                }
+            }
+        }
+    }
+
+
     fun searchUsers(searchValue: String, callback: (MutableList<User>) -> Unit){
         loadingDialog.show()
         HttpRequest.get("/users/search/$searchValue") { data: JSONObject?, msg: String? ->
