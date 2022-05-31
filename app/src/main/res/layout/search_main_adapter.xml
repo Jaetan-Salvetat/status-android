@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text="unfollow"
             android:visibility="invisible"
-            app:icon="@drawable/person_remove"
+            app:icon="@drawable/person_remove_icon"
             app:strokeColor="@android:color/holo_red_dark"
             android:textColor="@android:color/holo_red_dark"
             app:iconTint="@android:color/holo_red_dark"
