@@ -64,7 +64,7 @@
         android:id="@+id/no_users_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="no users"
+        android:text="@string/no_users"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         android:layout_gravity="center"

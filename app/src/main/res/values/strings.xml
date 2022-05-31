@@ -20,4 +20,9 @@
     <string name="no_status_text">No status text</string>
     <string name="search_input_placeholder">Search username</string>
     <string name="follow">Follow</string>
+    <string name="add_friends">Add friends !</string>
+    <string name="followers" translatable="false">followers</string>
+    <string name="followed" translatable="false">followed</string>
+    <string name="zero" translatable="false">0</string>
+    <string name="no_users">No users</string>
 </resources>

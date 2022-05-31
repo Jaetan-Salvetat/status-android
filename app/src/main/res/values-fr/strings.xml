@@ -19,4 +19,6 @@
     <string name="no_status_text">Message de statut manquant</string>
     <string name="search_input_placeholder">Rechercher un nom d\'utilisateur</string>
     <string name="follow">Suivre</string>
+    <string name="add_friends">Ajoute des amis !</string>
+    <string name="no_users" translatable="false">Aucun utilisateurs</string>
 </resources>

@@ -38,6 +38,7 @@
                 android:id="@+id/profile_picture"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:contentDescription="@string/profile_picture"
                 android:src="@drawable/profile_icon"/>
 
             <LinearLayout
@@ -51,14 +52,14 @@
                     android:id="@+id/follower_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="45"
+                    android:text="@string/zero"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="followers"
+                    android:text="@string/followers"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
 
@@ -75,14 +76,14 @@
                     android:id="@+id/followed_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="45"
+                    android:text="@string/zero"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="followed"
+                    android:text="@string/followed"
                     android:textStyle="bold"
                     android:textSize="18sp" />
 
